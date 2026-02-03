@@ -9,12 +9,14 @@
             font-family: Arial, Helvetica, sans-serif;
         }
 
+        /* Main background */
         .main {
             background-color: #b3e5fc;
             min-height: 100vh;
             position: relative;
         }
 
+        /* Top navigation */
         .navbar {
             position: absolute;
             top: 15px;
@@ -43,29 +45,26 @@
             background-color: #2f80ed;
         }
 
+        /* Result content */
         .content {
-            text-align: center;
-            width: 70%;
-            margin: auto;
-            padding-top: 90px;
+            padding: 80px 60px;
+            width: 55%;
         }
 
         h1 {
             font-size: 26px;
-            margin-bottom: 20px;
+            margin-bottom: 15px;
         }
 
-        .description {
+        p {
             font-size: 14px;
-            line-height: 1.8;
         }
 
-        /* Background image */
+        /* Background illustration */
         .image {
             position: absolute;
+            right: 40px;
             bottom: 0;
-            left: 50%;
-            transform: translateX(-50%);
         }
 
         .image img {
@@ -79,25 +78,23 @@
 
 <div class="main">
 
+    <!-- Navigation -->
     <div class="navbar">
         <a href="/"><button>Home</button></a>
         <a href="/predict"><button>Predict</button></a>
     </div>
 
+    <!-- Result text -->
     <div class="content">
         <h1>Online Payments Fraud Detection</h1>
 
-        <p class="description">
-            The objective of this article is to predict online payments fraud given the various parameters.
-            This will be a classification problem since the target or dependent variable is the fraud
-            (categorical values). The purpose of fraud of online payments are to separate the available
-            supply of potable online payments into classes differing in superiority. We will be using
-            classification algorithms such as Decision tree, Random forest, svm, and Extra tree classifier.
-            We will train and test the data with these algorithms
+        <p>
+            The predicted fraud for the online payment is
+            <b>['prediction']</b>
         </p>
     </div>
 
-    <!-- ✅ LOCAL STATIC IMAGE -->
+    <!-- Image -->
     <div class="image">
         <img src="{{ url_for('static', filename='images/bg.png') }}">
     </div>
