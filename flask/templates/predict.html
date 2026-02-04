@@ -9,14 +9,12 @@
             font-family: Arial, Helvetica, sans-serif;
         }
 
-        /* Main background */
         .main {
             background-color: #b3e5fc;
             min-height: 100vh;
             position: relative;
         }
 
-        /* Top navigation */
         .navbar {
             position: absolute;
             top: 15px;
@@ -45,7 +43,6 @@
             background-color: #2f80ed;
         }
 
-        /* Form container */
         .form-container {
             padding: 40px 60px;
             width: 35%;
@@ -61,7 +58,7 @@
             font-weight: bold;
         }
 
-        input {
+        input, select {
             width: 100%;
             padding: 6px;
             margin-top: 5px;
@@ -81,7 +78,6 @@
             cursor: pointer;
         }
 
-        /* Background illustration */
         .image {
             position: absolute;
             right: 40px;
@@ -99,45 +95,48 @@
 
 <div class="main">
 
-    <!-- Navigation -->
     <div class="navbar">
         <a href="/"><button>Home</button></a>
         <a href="/predict"><button>Predict</button></a>
     </div>
 
-    <!-- Form -->
     <div class="form-container">
         <h1>Online Payments Fraud Detection</h1>
 
         <form action="/result" method="post">
 
             <label>Step</label>
-            <input type="number" name="step" placeholder="step represents a unit of time when" required>
+            <input type="number" name="step" required>
 
             <label>Type</label>
-            <input type="text" name="type" placeholder="type of online transaction" required>
+            <select name="type" required>
+                <option value="">Select Transaction Type</option>
+                <option value="CASH_OUT">CASH_OUT</option>
+                <option value="DEBIT">DEBIT</option>
+                <option value="PAYMENT">PAYMENT</option>
+                <option value="TRANSFER">TRANSFER</option>
+            </select>
 
             <label>Amount</label>
-            <input type="number" step="any" name="amount" placeholder="the amount of the transaction" required>
+            <input type="number" step="any" name="amount" required>
 
             <label>OldbalanceOrg</label>
-            <input type="number" step="any" name="oldbalanceOrg" placeholder="balance before the transaction" required>
+            <input type="number" step="any" name="oldbalanceOrg" required>
 
             <label>NewbalanceOrig</label>
-            <input type="number" step="any" name="newbalanceOrig" placeholder="balance after the transaction" required>
+            <input type="number" step="any" name="newbalanceOrig" required>
 
             <label>OldbalanceDest</label>
-            <input type="number" step="any" name="oldbalanceDest" placeholder="initial balance of recipient before the" required>
+            <input type="number" step="any" name="oldbalanceDest" required>
 
             <label>NewbalanceDest</label>
-            <input type="number" step="any" name="newbalanceDest" placeholder="the new balance of recipient after th" required>
+            <input type="number" step="any" name="newbalanceDest" required>
 
             <button type="submit" class="submit-btn">Submit</button>
 
         </form>
     </div>
 
-    <!-- Image -->
     <div class="image">
         <img src="{{ url_for('static', filename='images/bg.png') }}">
     </div>
