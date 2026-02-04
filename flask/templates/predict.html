@@ -9,7 +9,7 @@
             font-family: Arial, Helvetica, sans-serif;
         }
 
-       /* MAIN BACKGROUND */
+        /* MAIN BACKGROUND */
         .main {
             min-height: 100vh;
             background-image: url("{{ url_for('static', filename='images/2bg.jpeg') }}");
@@ -19,7 +19,6 @@
             padding: 1px 1px;
             position: relative;
         }
-
 
         /* Top navigation */
         .navbar {
@@ -64,9 +63,11 @@
         label {
             font-size: 13px;
             font-weight: bold;
+            display: block;
+            margin-top: 10px;
         }
 
-        input {
+        input, select {
             width: 100%;
             padding: 6px;
             margin-top: 5px;
@@ -84,18 +85,6 @@
             color: white;
             font-size: 13px;
             cursor: pointer;
-        }
-
-        /* Background illustration */
-        .image {
-            position: absolute;
-            right: 40px;
-            bottom: 0;
-        }
-
-        .image img {
-            width: 520px;
-            opacity: 0.95;
         }
     </style>
 </head>
@@ -117,25 +106,31 @@
         <form action="/result" method="post">
 
             <label>Step</label>
-            <input type="number" name="step" placeholder="step represents a unit of time when" required>
+            <input type="number" name="step" required>
 
             <label>Type</label>
-            <input type="text" name="type" placeholder="type of online transaction" required>
+            <select name="type" required>
+                <option value="">Select Transaction Type</option>
+                <option value="CASH_OUT">CASH_OUT</option>
+                <option value="DEBIT">DEBIT</option>
+                <option value="PAYMENT">PAYMENT</option>
+                <option value="TRANSFER">TRANSFER</option>
+            </select>
 
             <label>Amount</label>
-            <input type="number" step="any" name="amount" placeholder="the amount of the transaction" required>
+            <input type="number" step="any" name="amount" required>
 
             <label>OldbalanceOrg</label>
-            <input type="number" step="any" name="oldbalanceOrg" placeholder="balance before the transaction" required>
+            <input type="number" step="any" name="oldbalanceOrg" required>
 
             <label>NewbalanceOrig</label>
-            <input type="number" step="any" name="newbalanceOrig" placeholder="balance after the transaction" required>
+            <input type="number" step="any" name="newbalanceOrig" required>
 
             <label>OldbalanceDest</label>
-            <input type="number" step="any" name="oldbalanceDest" placeholder="initial balance of recipient before the" required>
+            <input type="number" step="any" name="oldbalanceDest" required>
 
             <label>NewbalanceDest</label>
-            <input type="number" step="any" name="newbalanceDest" placeholder="the new balance of recipient after the" required>
+            <input type="number" step="any" name="newbalanceDest" required>
 
             <button type="submit" class="submit-btn">Submit</button>
 
