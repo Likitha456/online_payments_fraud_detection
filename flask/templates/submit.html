@@ -9,12 +9,17 @@
             font-family: Arial, Helvetica, sans-serif;
         }
 
-        /* Main background */
+                      /* MAIN BACKGROUND */
         .main {
-            background-color: #b3e5fc;
             min-height: 100vh;
+            background-image: url("{{ url_for('static', filename='images/3bg.png') }}");
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            padding: 1px 1px;
             position: relative;
         }
+
 
         /* Top navigation */
         .navbar {
@@ -90,14 +95,8 @@
 
         <p>
             The predicted fraud for the online payment is
-          <b>{{ prediction }}</b>
-
+            <b>['prediction']</b>
         </p>
-    </div>
-
-    <!-- Image -->
-    <div class="image">
-        <img src="{{ url_for('static', filename='images/bg.png') }}">
     </div>
 
 </div>

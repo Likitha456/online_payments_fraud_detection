@@ -1,105 +1,92 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>Online Payments Fraud Detection</title>
+    <meta charset="UTF-8">
+    <title>Online Payment Fraud Detection</title>
 
     <style>
-        body {
+        * {
             margin: 0;
+            padding: 0;
+            box-sizing: border-box;
             font-family: Arial, Helvetica, sans-serif;
         }
 
-        .main {
-            background-color: #b3e5fc;
+        body {
             min-height: 100vh;
+        }
+
+        /* MAIN BACKGROUND */
+        .main {
+            min-height: 100vh;
+            background-image: url("{{ url_for('static', filename='images/1bg.jpeg') }}");
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            padding: 40px 60px;
             position: relative;
         }
 
+        /* NAVBAR */
         .navbar {
             position: absolute;
-            top: 15px;
-            right: 20px;
+            top: 20px;
+            right: 40px;
         }
 
         .navbar a {
             text-decoration: none;
-            margin-left: 6px;
-        }
-
-        .navbar button {
-            padding: 6px 14px;
-            border: none;
-            border-radius: 4px;
-            font-size: 13px;
-            cursor: pointer;
             color: white;
-        }
-
-        .navbar a:first-child button {
-            background-color: #64c7f0;
-        }
-
-        .navbar a:last-child button {
-            background-color: #2f80ed;
-        }
-
-        .content {
-            text-align: center;
-            width: 70%;
-            margin: auto;
-            padding-top: 90px;
-        }
-
-        h1 {
-            font-size: 26px;
-            margin-bottom: 20px;
-        }
-
-        .description {
+            background-color: #563bc4;
+            padding: 8px 16px;
+            margin-left: 10px;
+            border-radius: 6px;
             font-size: 14px;
+            font-weight: bold;
+        }
+
+        .navbar a.home {
+            background-color: #bb5bde;
+        }
+
+        /* CONTENT */
+        .content {
+            max-width: 900px;
+            margin: 140px auto 0 auto;
+            text-align: center;
+            color: rgb(36, 37, 36);
+        }
+
+        .content h1 {
+            font-size: 32px;
+            font-weight: bold;
+            margin-bottom: 30px;
+            margin-top: 200px;
+            margin: 220px 0 0 60px;
+            text-align: center;
+        }
+
+        .content p {
+            font-size: 16px;
             line-height: 1.8;
-        }
-
-        /* Background image */
-        .image {
-            position: absolute;
-            bottom: 0;
-            left: 50%;
-            transform: translateX(-50%);
-        }
-
-        .image img {
-            width: 520px;
-            opacity: 0.95;
+            font-style: italic;
         }
     </style>
 </head>
-
 <body>
 
 <div class="main">
 
+    <!-- NAVIGATION -->
     <div class="navbar">
-        <a href="/"><button>Home</button></a>
-        <a href="/predict"><button>Predict</button></a>
+        <a href="/" class="home">Home</a>
+        <a href="/predict">Predict</a>
     </div>
 
+    <!-- TEXT CONTENT -->
     <div class="content">
-        <h1>Online Payments Fraud Detection</h1>
+        <h1>Online Payments <br> Fraud Detection</h1>
 
-        <p class="description">
-            The objective of this article is to predict online payments fraud given the various parameters.
-            This will be a classification problem since the target or dependent variable is the fraud
-            (categorical values). The purpose of fraud of online payments are to separate the available
-            supply of potable online payments into classes differing in superiority. We will be using
-            classification algorithms such as Decision tree, Random forest, svm, and Extra tree classifier.
-            We will train and test the data with these algorithms
-        </p>
-    </div>
-
-    <!-- ✅ LOCAL STATIC IMAGE -->
-    <div class="image">
-        <img src="{{ url_for('static', filename='images/bg.png') }}">
     </div>
 
 </div>
