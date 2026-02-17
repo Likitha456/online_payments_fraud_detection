@@ -45,7 +45,7 @@ def result():
         type_transfer = 1 if txn_type == "TRANSFER" else 0
 
         # 4️⃣ Create input array (EXACTLY 11 FEATURES — SAME AS TRAINING)
-        input_data = np.array([[
+        input_data = np.array([[ 
             step,
             amount,
             oldbalanceOrg,
@@ -59,10 +59,14 @@ def result():
             type_transfer
         ]])
 
-        # 5️⃣ Predict
-        prediction = model.predict(input_data)[0]
+        # 5️⃣ Probability-based prediction (IMPORTANT)
+        fraud_probability = model.predict_proba(input_data)[0][1]
 
-        result_text = "🚨 Fraud Transaction" if prediction == 1 else "✅ Not a Fraud Transaction"
+        # Threshold for imbalanced dataset
+        if fraud_probability >= 0.4:
+            result_text = "🚨 Fraud Transaction"
+        else:
+            result_text = "✅ Not a Fraud Transaction"
 
         return render_template("submit.html", prediction=result_text)
 

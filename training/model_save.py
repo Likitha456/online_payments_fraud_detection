@@ -21,12 +21,17 @@ X_train, X_test, y_train, y_test = train_test_split(
     X, y, test_size=0.2, random_state=42, stratify=y
 )
 
-# Train Decision Tree (final model)
-dt_model = DecisionTreeClassifier(random_state=42)
+# 🔥 UPDATED BALANCED DECISION TREE
+dt_model = DecisionTreeClassifier(
+    random_state=42,
+    class_weight='balanced',
+    max_depth=8
+)
+
 dt_model.fit(X_train, y_train)
 
 # Save the model
 with open("decision_tree_model.pkl", "wb") as file:
     pickle.dump(dt_model, file)
 
-print("Decision Tree model saved successfully as decision_tree_model.pkl")
+print("Balanced Decision Tree model saved successfully as decision_tree_model.pkl")
